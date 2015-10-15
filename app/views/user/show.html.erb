@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<div class = show>
+
+	<table>
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>Category</th>
+	</tr>
+	<tr>
+		<td><%=@user.first_name%></td>
+		<td><%=@user.last_name%></td>
+		<td><%= @user.email_address%></td>
+		<td><%= @user.category_id%></td>
+		<td><%= @user.id%></td>
+	 </tr>
+	</table>
+</div>
+
+<div class = comment>
+	<form action="/user/idea" method='post' id = "com">
+		<h5>Comment</h5>
+			<textarea rows="4" cols="50" name="comment" form="com">
+			</textarea>
+			<input type="submit" name='submit' value='submit'>
+	 		<input type="hidden" name="user_id" value="<%= @user.id%>">
+	 		
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	</form>	
+</div>
+
